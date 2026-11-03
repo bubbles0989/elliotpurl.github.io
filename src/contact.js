@@ -2,6 +2,15 @@ $(function () {
 	const $contactForm = $(".contact-form");
 	const $contactStatus = $(".contact-form-status");
 	const $submitButton = $contactForm.find(".contact-form-submit");
+	const $message = $contactForm.find("#contact-message");
+
+	$contactForm.find(".contact-message-suggestion").on("click", function () {
+		if (!$message.val()) {
+			$message.val($message.attr("placeholder"));
+		}
+
+		$message.trigger("focus");
+	});
 
 	$contactForm.on("submit", async function (event) {
 		event.preventDefault();
